@@ -1,0 +1,242 @@
+#include "stdio.h"
+#define ex8
+
+/******************************************************************************
+
+	    MATRIZES OU VETORES COM SERIE DE CARACTERES OU STRING
+
+
+			EXERCICIOS
+
+*****************************************************************************
+OBS.: Todos os programa devem ser finalizados pelo usuario.
+
+1 - Escreva um programa para receber 5 nomes, com até 7 caracteres, via teclado
+    e imprima-os no video no seguinte formato:
+
+            10        20        30        40        50
+    12345678901234567890123456789012345678901234567890
+      nome1                                   nome5
+                nome2               nome4
+                          nome3
+    */
+#ifdef ex1
+
+char c[5][7];
+
+main()
+{
+
+int x, i;
+
+printf("digite 5 nomes: \n");
+
+for(i=0; i<5; i++)
+
+scanf("%s", &c[i]);
+
+
+printf("\n as strings digitada foram: \n");
+
+printf("        10        20        30        40        50\n");
+printf("12345678901234567890123456789012345678901234567890\n");
+printf("%-10s                                   %-10s\n", &c[0], &c[1]);
+printf("          %-10s               %-10s\n", &c[2], &c[3]);
+printf("                     %-10s ", &c[4]);
+
+}
+
+    #endif // ex1
+
+    /**
+
+2 - Escreva um programa para receber 3 strings de ate 10 caracteres cada via
+    teclado e imprima-as no video no seguinte formato:
+    (utilize vetores multidimensionais)
+
+            10        20        30        40        50        60
+    123456789012345678901234567890123456789012345678901234567890
+        string1             string2             string3
+**/
+#ifdef ex2
+char c[5][10];
+
+main()
+{
+
+int x, i;
+
+printf("digite 3 nomes: \n");
+
+for(i=0; i<3; i++)
+
+scanf("%s", &c[i]);
+
+
+printf("\n as strings digitada foram: \n");
+
+printf("        10        20        30        40        50        60\n");
+printf("123456789012345678901234567890123456789012345678901234567890\n");
+printf("    %-10s           %-10s               %-10s\n", &c[0], &c[1], &c[2]);
+
+}
+
+#endif // ex2
+
+/**
+
+3 - Receba 2 string de ate 10 caracteres via teclado, compare-as mostrando como
+    resultado se são IGUAIS ou DIFERENTES.
+ **/
+ #ifdef ex3
+char c[10];
+char a[10];
+
+main()
+{
+
+int x, i;
+
+
+printf("digite o primeiro nome: \n");
+gets(c);
+
+printf("\ndigite o segundo nome: \n");
+gets(a);
+
+for(i=0; i<c[10]; i++){
+        c[i] = c[10];
+    for(x=0; x<a[10]; x++){
+            a[x] = a[10];
+    }
+}if(c[i]==a[x]){
+    printf("As strings %s e %s sao iguais", &c[i], &a[x]);
+}else
+    printf("As strings %s e %s sao diferentes", &c[i], &a[x]);
+
+}
+
+ #endif
+ /**
+
+4 - Leia uma string (3 caracteres) via teclado que pode assumir os valores seg,
+    ter, qua, qui, sex, sab, dom, e imprima as seguintes mensagens, respectivamente:
+    segunda-feira, terca-feira, quarta-feira, quinta-feira, sexta-feira, sabado e
+    domingo. Utilize o comando switch - case.
+**/
+#ifdef ex4
+
+char a[3];
+
+main(){
+    int i, opc;
+
+    while(a[3]<=3){
+    printf("Digite as 3 primeiras letras do dia da semana:\n");
+    scanf("%s", &a[3]);
+    }
+
+    switch(a[3]){
+case 's':
+    printf("Segunda-feira");
+    break;
+default :
+    printf("Valor invalido");
+    break;
+    }
+
+}
+#endif // ex4
+/**
+
+5 - Receba via teclado uma cadeia de caracteres (10) e converta todos os caracteres
+    para letras maiusculas.
+    **/
+ #ifdef ex5
+ int main(void){
+
+    char frase[40];
+    int i;
+
+    printf("Entre com o texto: ");
+    gets(frase);
+
+    for(i = 0; frase[i] != '\0'; i++)
+        if(frase[i] >= 97 && frase[i] <= 122)
+            frase[i] -= 32;
+
+    printf("\nNovo texto: %s\n", frase);
+
+    return 0;
+}
+
+ #endif // ex5
+/**
+6 - Receba via teclado uma cadeia de caracteres (10) e converta todos os caracteres
+    para letras minusculas.
+    **/
+    #ifdef ex6
+    int main(void){
+    char frase[40];
+    int i;
+
+    printf("Entre com o texto: ");
+    gets(frase);
+
+    for(i = 0; frase[i] != '\0'; i++)
+        if(frase[i] >= 65 && frase[i] <= 90)
+            frase[i] += 32;
+
+    printf("\nNovo texto: %s\n", frase);
+
+    return 0;
+}
+    #endif // ex6
+    /**
+
+7 - Faca um programa que leia uma palavra (maximo de 50 letras) e some 1 no valor
+    ASCII de cada caractere da palavra. Na sua funcao main(), imprima a string
+    resultante.
+    **/
+    #ifdef ex7
+
+    int main(void){
+    char frase[50];
+    int i;
+
+    printf("Entre com o texto: ");
+    gets(frase);
+
+    for(i = 0; frase[i] != '\0'; i++)
+        if(frase[i] >= 65 && frase[i] <= 90 ||frase[i] >= 97 && frase[i] <= 122)
+            frase[i] += 1;
+
+    printf("\nNovo texto: %s\n", frase);
+
+    return 0;
+}
+    #endif // ex7
+    /**
+
+8 - Escreva um programa que calcula o comprimento de uma string recebida via
+    teclado.
+**/
+#ifdef ex8
+
+int main(void){
+
+    char frase[40];
+    int i, total = 0;
+
+    printf("Entre com o texto: ");
+    gets(frase);
+
+    while(frase[total] != '\0')
+        total ++;
+
+    printf("\nNUMERO DO COMPRIMENTO DA STRING: %d\n", total);
+
+    return 0;
+}
+#endif // ex8
+

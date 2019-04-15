@@ -1,0 +1,128 @@
+#include <stdio.h>
+#define ex3
+/*****************************************************************************
+
+			EXERCICIOS
+
+*****************************************************************************
+OBS.: Todos os programa devem ser finalizados pelo usuario.
+
+1 - Escreva um programa que tem uma estrutura da dados com os membros abaixo.
+    receba dados via teclado e imprima estes conteudos no video no seguinte
+    formato.
+             char, int, long, float, double
+             unsigned char, unsigned int, unsigned long,
+
+            10        20        30        40        50        60        70
+    1234567890123456789012345678901234567890123456789012345678901234567890
+        char      int       long                float               double
+              unsigned char       unsigned int        unsigned long
+**/
+#ifdef ex1
+struct estrutura{
+    char A;
+    int B;
+    unsigned char C;
+    long D;
+    float F;
+    unsigned long G;
+    double H;
+};
+
+struct estrutura dados = {'X', -21454, 'A', -2147483648, 129845e-4, 4294967295, 66666};
+
+int main()
+{
+    printf("        10        20        30        40        50        60        70\n");
+    printf("1234567890123456789012345678901234567890123456789012345678901234567890\n");
+    printf("   %4c       %6d       %11ld               %-15.2f              %-19.2lf\n", dados.A, dados.B, dados.D, dados.F, dados.H);
+
+    return 0;
+}
+#endif // ex1
+
+/**2 - Escreva um programa com a estrutura abaixo. Defina um vetor de estruturas
+    de 4 elementos. Receba os dados pelo teclado e imprima-os no video. Faça um
+    menu. (vetor de estruturas)
+		nome, end, cidade, estado, cep
+**/
+
+#ifdef ex2
+
+struct cadastro{
+char nome [15];
+char end  [20];
+char cidade [15];
+char estado  [15];
+long cep;
+};
+
+struct cadastro data [4] = {"Rodrigo", "Comendador Martins", "Santos", "SP", 11035661};
+main()
+{
+    printf("\nMinhas infos sao...");
+    printf("%s\n", data[0].nome);
+    printf("%s\n", data[0].end);
+    printf("%s\n", data[0].cidade);
+    printf("%s\n", data[0].estado);
+    printf("%ld", data[0].cep);
+}
+
+#endif // ex2
+/**3 - Crie uma estrutura para representar as coordenadas de um ponto no plano
+    (posicoes X e Y). Em seguida, declare e leia do teclado um ponto e exiba a
+    distancia dele ate' a origem das coordenadas, isto eh, posicoes (0, 0). Para
+    realizar o calculo, utilize a formula a seguir:
+           d = raiz quadrada de  (XB - XA)ao 2 +(YB -YA)ao 2
+    Em que:
+    d = distancia entre os pontos A e B
+    X = coordenada X em um ponto
+    Y = coordenada Y em um ponto
+*/
+#ifdef ex3
+float raiz_quadrada (float numero);
+struct coordenadas{
+    float xa;
+    float xb;
+    float ya;
+    float yb;
+};
+
+struct coordenadas dados = {0, 0, 0, 0};
+main(){
+    float dist = 0, resp1 = 0, resp2 = 0;
+    float resp_raizX = 0, resp_raizY = 0;
+
+    printf("digite os pontos x e y para coordenadas\n");
+    printf("\nponto x\n");
+    scanf("%f", &dados.xa);
+    printf("%.1f", dados.xa);
+    printf("\nponto y\n");
+    scanf("%f", &dados.ya);
+
+    resp1 = raiz_quadrada(dados.xb - dados.xa);
+    resp2 = raiz_quadrada(dados.yb - dados.ya);
+    resp_raizX = resp1 * resp1;
+    resp_raizY = resp2 * resp2;
+    dist = resp_raizX + resp_raizY;
+
+    printf("raiz quadrada de %.2f menos %.2f eh %.2f\n", dados.xb, dados.xa, resp1);
+    printf("Resultado da distancia entre coordenadas xa %.2f  ya %.2f ate sua origem 0,0 eh %.2f", dados.xa, dados.ya, dist);
+
+
+}
+
+float raiz_quadrada (float numero)
+{
+    int n;
+    float recorre = numero;
+
+    for (n = 0; n < 10; n++)
+          recorre = recorre/2 + numero/(2*recorre);
+
+    return(recorre);
+}
+
+#endif // ex3
+
+

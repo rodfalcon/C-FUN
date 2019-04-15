@@ -1,0 +1,274 @@
+﻿#include <stdio.h>
+#define ex1
+
+
+#ifdef ex1
+/*Escreva um programa e inicialize as variaveis do tipo
+char, int, short, long, unsigned(char, int, short, long), float e double com seus valores limites e imprima-os no video.
+Utilize variáveis globais para os valores positivos e locais para os negativos*/
+
+    char c = 127;
+    int i = 32767;
+    short si = 32767;
+    long li = 2147483647;
+    unsigned char uc = 255;
+    unsigned int ui = 65535;
+    unsigned short usi  = 65535;
+    unsigned long uli = 4294967295;
+    float f = 3.4E+38;
+    double d = 1.7E+308;
+
+main()
+{
+    printf("LIMITES POSITIVOS\n");
+    printf("\nCHAR = %c\n",c);
+    printf("INTEIRO = %d\n",i);
+    printf("SHORT = %hd\n",si);
+    printf("LONG = %ld\n",li);
+    printf("UNSIGNED CHAR = %u\n",uc);
+    printf("UNSIGNED INT = %u\n",ui);
+    printf("UNSIGNED SHORT = %hu\n",usi);
+    printf("UNSIGNED LONG = %lu\n",uli);
+    printf("FLOAT = %g\n",f);
+    printf("DOUBLE = %g\n",d);
+
+    char c1 = -128;
+    int i1 = -32768 ;
+    short si1 = -32768;
+    long li1 = -2147483648;
+    unsigned char uc1 = 0;
+    unsigned int ui1 = 0;
+    unsigned short usi1 = 0;
+    unsigned long uli1 = 0;
+    float f1 = -3.4E+38;
+    double d1 = -1.7E+308;
+
+    printf("\nVALORES NEGATIVOS\n");
+
+    printf("\nCHAR = %c\n",c1);
+    printf("INTEIRO = %d\n",i1);
+    printf("SHORT = %hd\n",si1);
+    printf("LONG = %ld\n",li1);
+    printf("UNSIGNED CHAR = %u\n",uc1);
+    printf("UNSIGNED INT = %u\n",ui1);
+    printf("UNSIGNED SHORT = %hu\n",usi1);
+    printf("UNSIGNED LONG = %lu\n",uli1);
+    printf("FLOAT = %g\n",f1);
+    printf("DOUBLE = %g\n",d1);
+}
+#endif // ex1
+
+#ifdef ex2
+/*Escreva um programa que receba dados via teclado para variaveis do tipo short,
+long, int, float, double e um char e imprima-os no video no seguinte formato:
+        10        20        30        40        50        60
+12345678901234567890123456789012345678901234567890123456789012345
+    short               long                int
+              float               double              char
+*/
+main()
+{
+    char c;
+    unsigned char uc;
+    short s;
+    long l;
+    int i;
+    float f;
+    double d;
+    unsigned int ui;
+    unsigned long ul;
+
+    printf("DIGITE UM NUMERO SHORT: ");
+    scanf("%d",&s);
+    printf("DIGITE UM NUMERO LONG: ");
+    scanf("%d",&l);*/
+    printf("DIGITE UM NUMERO INT: ");
+    scanf("%d",&i);
+    printf("DIGITE UM NUMERO FLOAT: ");
+    scanf("%f",&f);
+    printf("DIGITE UM NUMERO DOUBLE: ");
+    scanf("%lf",&d);
+    printf("DIGITE UM UNSIGNED INT: ");     //ex3
+    scanf("%u",&ui);
+    printf("DIGITE UM UNSIGNED LONG: ");    //ex3
+    scanf("%lu",&ul);
+    printf("DIGITE UM UNSIGNED CHAR: ");    //ex3
+    scanf("%c",&uc);
+    uc = getchar();
+    printf("DIGITE UM CARACTER: ");
+    scanf("%c",&c);
+    c = getchar();
+
+    printf("        10        20        30        40        50        60\n");
+    printf("12345678901234567890123456789012345678901234567890123456789012345\n");
+
+
+    printf("%6d%10d",i,i);
+    printf("%9d%19d%19d\n",s,l,i);
+    printf("%19.1f%21.0lf%18c\n",f,d,c);
+    printf("%10u%20u%20lu",uc,ui,ul);	//ex3
+}
+#endif // ex2
+
+#ifdef ex3
+/*Acrescente ao exercicio anterior mais uma linha. Receba via teclado os valores
+sem sinal char, int e long int e escrevendo nas coluna 10, 30 e 50.*/
+#endif // ex3
+
+#ifdef ex4
+/*Escreva um programa que permute o conteúdo de duas variáveis sem utilizar uma
+    variável auxiliar.*/
+main()
+{
+    int A=30,B=70;
+
+    printf("VARIAVEIS INICIAIS\n");
+    printf("A=%d\nB=%d\n",A,B);
+
+    A = A+B;
+    B = A-B;
+    A = A-B;
+
+    printf("\nVARIAVEIS PERMUTADAS\n");
+    printf("A=%d\nB=%d",A,B);
+}
+#endif // ex4
+
+#ifdef ex5
+/*Escreva um programa que determine o menor multiplo de um numero inteiro.
+Este multiplo deve ser maior que o limite minimo recebido.
+Recebe os 2 numeros via teclado.
+Ex: menor multiplo de 13 maior que 100. Resultado: 104.*/
+
+main()
+{
+    int A,B,x,MENOR=0;
+
+    printf("LIMITE: ");
+    scanf("%d",&A);
+    printf("MULTIPLO: ");
+    scanf("%d",&B);
+
+    for(x=A+B+1;x>A;x--)
+    {
+        if(x%B==0)
+        {
+            if(x<MENOR)
+            {
+                MENOR = x;
+            }
+                else if(MENOR==0)
+                {
+                    MENOR = x;
+                }
+        }
+    }
+    printf("MENOR MULTIPLO DE %d MAIOR QUE %d = %d",B,A,MENOR);
+}
+#endif // ex5
+
+#ifdef ex6
+/*Escreva um programa que receba via teclado um tempo em segundos e
+converta para horas, minutos e segundos.
+Ex.: recebe 3850 segundos que converte para 1h 4min 10s.*/
+
+main()
+{
+    int H,M,S,s;
+
+    printf("DIGITE OS SEGUNDOS: ");
+    scanf("%d",&s);
+
+    H = s/3600;
+    S = s%3600;
+    M = S/60;
+    S = S-(M*60);
+
+    if(H==0)
+    {
+        printf("%d SEGUNDOS SAO = %dmin %dseg",s,M,S);
+    }
+        else if(H==1)
+        {
+            printf("%d SEGUNDOS SAO = %dh %dmin %dseg",s,H,M,S);
+        }
+            else
+            {
+                printf("%d SEGUNDOS SAO = %dhrs %dmin %dseg",s,H,M,S);
+            }
+}
+#endif // ex6
+
+#ifdef ex7
+/*Faça um programa para ler um numero inteiro, positivo de tres digitos, e
+gerar outro número formado pelos dígitos invertidos do número lido.
+Ex:   NúmeroLido = 123 NúmeroGerado = 321*/
+main()
+{
+    int A,B=0,C=0,D=0;
+
+    do
+    {
+        printf("DIGITE UM NUMERO POSITIVO DE 3 DIGITOS: ");
+        scanf("%d",&A);
+        if(A<99 || A>999)
+        {
+            printf("DIGITE UM NUMERO POSITIVO DE 3 DIGITOS!!!\n");
+        }
+    }while(A<99 || A>999);
+
+    D = A;
+
+    for(;A>0;)
+    {
+        B = A%10;
+        C = C*10+B;
+        A = A/10;
+    }
+
+    printf("NUMERO ORIGINAL  = %d\n",D);
+    printf("NUMERO INVERTIDO = %d\n",C);
+}
+#endif // ex7
+
+#ifdef ex8
+/*O coração humano bate em media uma vez por segundo.
+Escrever um programa para calcular quantas vezes o coracao de uma pessoa baterá se viver X anos.
+Imprimir o resultado na tela.*/
+
+main()
+{
+    int A,D,B=0,AB;
+
+    do
+    {
+        printf("DIGITE A IDADE QUE A PESSOA VIVERA: ");
+        scanf("%d",&A);
+        if(A<=0)
+        {
+            printf("DIGITE UMA IDADE MAIOR QUE 0\n");
+        }
+    }while(A<=0);
+
+    D = A*365;
+    B = D*86400;
+
+    if(A>=4)
+    {
+        AB = A/4;
+        B = B + (86000*AB);
+        if(AB==1)
+        {
+            printf("CONTANDO COM %d ANO BISSEXTO SEU CORACAO BATERA %d VEZES EM %d ANOS",AB,B,A);
+        }
+            else
+            {
+                printf("CONTANDO COM OS %d ANOS BISSEXTOS SEU CORACAO BATERA %d VEZES EM %d ANOS",AB,B,A);
+            }
+    }
+        else
+        {
+            printf("SEU CORACAO BATERA %d VEZES EM %d ANOS",B,A);
+        }
+}
+#endif // ex8
